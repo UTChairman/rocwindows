@@ -1,0 +1,12 @@
+/* Applied before Tailwind CDN loads — prevents flash of old gold (#FFD700) brand */
+.bg-safety-yellow { background-color: #183549 !important; }
+.text-safety-yellow { color: #183549 !important; }
+.border-safety-yellow { border-color: #183549 !important; }
+.bg-on-background { background-color: #1f1b10 !important; }
+.bg-charcoal-black { background-color: #1a1a1a !important; }
+.bg-background { background-color: #fff9ef !important; }
+.text-structural-white { color: #fff !important; }
+.text-on-background { color: #1f1b10 !important; }
+.border-charcoal-black { border-color: #1a1a1a !important; }
+.selection\:bg-safety-yellow ::selection { background-color: #183549 !important; }
+.selection\:text-structural-white ::selection { color: #fff !important; }

@@ -1,0 +1,19 @@
+node_modules/
+package-lock.json
+
+# Stitch / dev tooling (not needed for the live site)
+fetch-stitch.mjs
+stitch-urls.json
+fix-site.cjs
+fix_links.cjs
+fix-pages-contrast.cjs
+update-brand-color.cjs
+update-brand-contrast.cjs
+package.json
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.log
+.env
+.env.*

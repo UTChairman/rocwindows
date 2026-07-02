@@ -1,0 +1,11 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/about", "destination": "/about_us.html" },
+    { "source": "/services", "destination": "/services.html" },
+    { "source": "/work", "destination": "/our_work.html" },
+    { "source": "/portfolio", "destination": "/our_work.html" },
+    { "source": "/roof-replacement", "destination": "/roof_replacement.html" }
+  ]
+}
