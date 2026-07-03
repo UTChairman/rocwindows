@@ -132,13 +132,17 @@
             div.marquee-content, .marquee-content span { font-size: 15px; }
         }
         /* Mobile nav + scrolled header (JEF pattern) */
-        header { transition: background-color 0.25s ease; }
-        .header-scrolled,
-        body.nav-open header { 
-            background: rgba(16, 22, 28, 0.1);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        header {
+            color: #1A1A1A;
+            transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
         }
+        .header-scrolled,
+        body.nav-open header {
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        }
+        #menu-btn { color: inherit; }
+        #menu-btn span { background: currentColor; border-radius: 2px; }
+        body.nav-open { overflow: hidden; }
         #mobile-nav.flex { display: flex; }
         #menu-btn.menu-open span:nth-child(1) { transform: translateY(9.5px) rotate(45deg); }
         #menu-btn.menu-open span:nth-child(2) { opacity: 0; }
@@ -147,34 +151,35 @@
 </head>
 <body class="bg-background text-on-background font-body-md overflow-x-hidden">
 <!-- TopAppBar -->
-<header class="fixed top-0 w-full z-50 flex justify-between items-center px-4 py-3" style="background: rgba(16, 22, 28, 0.1); backdrop-filter: blur(12px); border-bottom: 2px solid #183549;">
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-4 py-3" style="background: rgba(255, 255, 255, 0.96); backdrop-filter: saturate(180%) blur(12px); border-bottom: 1px solid #e5e5e5;">
 <div class="flex items-center gap-4">
 <a class="text-headline-sm-mobile font-headline-sm-mobile font-black text-structural-white" href="index.html"><img src="images/logo.png" alt="Roc Windows" class="h-12 md:h-16 w-auto inline-block"></a>
 </div>
-<nav class="hidden md:flex items-center gap-8">
-<a class="text-label-bold font-label-bold uppercase text-structural-white hover:text-structural-white transition-all" href="index.html">Home</a>
-<a class="text-label-bold font-label-bold uppercase text-structural-white hover:text-structural-white transition-all" href="about_us.html">About</a>
-<a class="text-label-bold font-label-bold uppercase text-structural-white font-bold transition-all hover:opacity-80" href="services.html">Services</a>
-<a class="text-label-bold font-label-bold uppercase text-structural-white hover:text-structural-white transition-all" href="our_work.html">Portfolio</a>
-<a class="text-label-bold font-label-bold uppercase text-structural-white hover:text-structural-white transition-all" href="index.html#contact">Contact</a>
+<nav class="hidden lg:flex items-center gap-8">
+<a class="text-label-bold font-label-bold uppercase hover:opacity-70 transition-opacity" href="index.html">Home</a>
+<a class="text-label-bold font-label-bold uppercase hover:opacity-70 transition-opacity" href="about_us.html">About</a>
+<a class="text-label-bold font-label-bold uppercase font-bold transition-opacity hover:opacity-70" href="services.html">Services</a>
+<a class="text-label-bold font-label-bold uppercase hover:opacity-70 transition-opacity" href="our_work.html">Portfolio</a>
+<a class="text-label-bold font-label-bold uppercase hover:opacity-70 transition-opacity" href="index.html#contact">Contact</a>
 </nav>
 <div class="flex items-center gap-4">
-<a class="bg-safety-yellow text-structural-white px-4 sm:px-6 py-2 text-label-bold font-label-bold uppercase border-2 border-safety-yellow hover:bg-transparent hover:text-structural-white transition-colors active:scale-95 duration-100" href="index.html#contact">
+<a class="hidden lg:inline-block font-headline-sm font-black tracking-wide hover:opacity-70 transition-opacity" href="tel:+18454146195">(845) 414-6195</a>
+<a class="hidden sm:inline-block bg-safety-yellow text-structural-white px-4 sm:px-6 py-2 text-label-bold font-label-bold uppercase border-2 border-safety-yellow hover:opacity-90 transition-opacity active:scale-95 duration-100" href="index.html#contact">
             FREE QUOTE
         </a>
-<button aria-controls="mobile-nav" aria-expanded="false" aria-label="Toggle menu" class="md:hidden flex flex-col justify-between w-8 h-[22px] bg-transparent border-0 cursor-pointer p-0" id="menu-btn" type="button">
-<span class="block h-[3px] w-full bg-structural-white transition-transform duration-200"></span>
-<span class="block h-[3px] w-full bg-structural-white transition-opacity duration-200"></span>
-<span class="block h-[3px] w-full bg-structural-white transition-transform duration-200"></span>
+<button aria-controls="mobile-nav" aria-expanded="false" aria-label="Toggle menu" class="lg:hidden flex flex-col justify-between w-8 h-[22px] bg-transparent border-0 cursor-pointer p-0" id="menu-btn" type="button">
+<span class="block h-[3px] w-full transition-transform duration-200"></span>
+<span class="block h-[3px] w-full transition-opacity duration-200"></span>
+<span class="block h-[3px] w-full transition-transform duration-200"></span>
 </button>
 </div>
-<nav aria-label="Mobile navigation" class="hidden absolute top-full left-0 w-full flex-col px-6 pt-2 pb-8" id="mobile-nav" style="background: rgba(16, 22, 28, 0.15); backdrop-filter: blur(12px); border-top: 2px solid #183549;">
-<a class="block py-3 border-b border-white/10 text-structural-white uppercase font-headline-sm text-headline-sm hover:text-brand-light transition-colors" href="index.html">Home</a>
-<a class="block py-3 border-b border-white/10 text-structural-white uppercase font-headline-sm text-headline-sm hover:text-brand-light transition-colors" href="about_us.html">About</a>
-<a class="block py-3 border-b border-white/10 text-structural-white uppercase font-headline-sm text-headline-sm hover:text-brand-light transition-colors" href="services.html">Services</a>
-<a class="block py-3 border-b border-white/10 text-structural-white uppercase font-headline-sm text-headline-sm hover:text-brand-light transition-colors" href="our_work.html">Portfolio</a>
-<a class="block py-3 border-b border-white/10 text-structural-white uppercase font-headline-sm text-headline-sm hover:text-brand-light transition-colors" href="index.html#contact">Contact</a>
-<a class="block py-3 border-b border-white/10 text-brand-light uppercase font-headline-sm text-headline-sm" href="tel:+18454146195">(845) 414-6195</a>
+<nav aria-label="Mobile navigation" class="hidden absolute top-full left-0 w-full flex-col px-6 pt-2 pb-8" id="mobile-nav" style="background: #ffffff; border-top: 1px solid #e5e5e5;">
+<a class="block py-3 border-b border-charcoal-black/10 text-charcoal-black uppercase font-headline-sm text-headline-sm hover:text-primary transition-colors" href="index.html">Home</a>
+<a class="block py-3 border-b border-charcoal-black/10 text-charcoal-black uppercase font-headline-sm text-headline-sm hover:text-primary transition-colors" href="about_us.html">About</a>
+<a class="block py-3 border-b border-charcoal-black/10 text-charcoal-black uppercase font-headline-sm text-headline-sm hover:text-primary transition-colors" href="services.html">Services</a>
+<a class="block py-3 border-b border-charcoal-black/10 text-charcoal-black uppercase font-headline-sm text-headline-sm hover:text-primary transition-colors" href="our_work.html">Portfolio</a>
+<a class="block py-3 border-b border-charcoal-black/10 text-charcoal-black uppercase font-headline-sm text-headline-sm hover:text-primary transition-colors" href="index.html#contact">Contact</a>
+<a class="block py-3 border-b border-charcoal-black/10 text-primary uppercase font-headline-sm text-headline-sm" href="tel:+18454146195">(845) 414-6195</a>
 <a class="mt-5 block bg-safety-yellow text-structural-white text-center px-6 py-4 text-label-bold font-label-bold uppercase border-2 border-safety-yellow active:scale-95 transition-transform" href="index.html#contact">Get a Free Quote</a>
 </nav>
 </header>
@@ -190,15 +195,15 @@
                         Expert Cleaning
                     </div>
 <h1 class="text-display-lg font-display-lg text-structural-white mb-8 tracking-tighter">
-                        WINDOW <br/><span class="text-safety-yellow">CLEANING</span>
+                        WINDOW <br/><span class="text-brand-light">CLEANING</span>
 </h1>
 <p class="text-body-lg font-body-lg text-structural-white max-w-2xl mb-10 opacity-90">
                         Spotless interior and exterior window cleaning for a crystal clear view. We use advanced techniques to guarantee streak-free results.
                     </p>
 <div class="flex flex-col sm:flex-row gap-4">
-<button class="bg-safety-yellow text-structural-white font-label-bold text-label-bold uppercase px-10 py-5 brutalist-shadow-dark hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all">
+<a class="inline-block text-center bg-safety-yellow text-structural-white font-label-bold text-label-bold uppercase px-10 py-5 brutalist-shadow-dark hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all" href="index.html#contact">
                             Start Your Quote
-                        </button>
+                        </a>
 <div class="flex items-center gap-4 text-structural-white px-6">
 <span class="material-symbols-outlined text-structural-white" data-icon="verified">verified</span>
 <span class="font-label-bold text-label-bold">Licensed &amp; Insured</span>
@@ -223,8 +228,8 @@
 </div>
 <div class="relative">
 <!-- Desktop Timeline Line -->
-<div class="hidden md:block absolute top-12 left-0 w-full h-[2px] bg-charcoal-black/20"></div>
-<div class="grid grid-cols-1 md:grid-cols-5 gap-12 relative z-10">
+<div class="hidden lg:block absolute top-12 left-0 w-full h-[2px] bg-charcoal-black/20"></div>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-12 relative z-10">
 <!-- Step 1 -->
 <div class="flex flex-col">
 <div class="w-24 h-24 bg-charcoal-black text-structural-white flex items-center justify-center font-black text-stats-number mb-8 border-4 border-safety-yellow relative brutalist-shadow">
@@ -272,7 +277,7 @@
 <section class="bg-charcoal-black text-structural-white">
 <div class="grid grid-cols-1 lg:grid-cols-2">
 <!-- Top-Tier Shingles -->
-<div class="p-16 border-b-2 lg:border-b-0 lg:border-r-2 border-safety-yellow flex flex-col justify-center">
+<div class="p-8 sm:p-12 lg:p-16 border-b-2 lg:border-b-0 lg:border-r-2 border-safety-yellow flex flex-col justify-center">
 <div class="flex items-center gap-4 mb-8">
 <span class="material-symbols-outlined text-structural-white text-5xl" data-icon="clean_hands">clean_hands</span>
 <h2 class="text-headline-lg font-headline-lg uppercase">Top-Tier Cleaning Solutions</h2>
@@ -296,7 +301,7 @@
 </ul>
 </div>
 <!-- Safety First -->
-<div class="p-16 flex flex-col justify-center bg-safety-yellow text-structural-white">
+<div class="p-8 sm:p-12 lg:p-16 flex flex-col justify-center bg-safety-yellow text-structural-white">
 <div class="flex items-center gap-4 mb-8">
 <span class="material-symbols-outlined text-charcoal-black text-5xl" data-icon="hard_hat">chef_hat</span>
 <h2 class="text-headline-lg font-headline-lg uppercase">Safety First</h2>
@@ -328,12 +333,12 @@
                     Based in Congers, NY, we work with homeowners across five states. Get an honest, upfront estimate today.
                 </p>
 <div class="flex flex-col md:flex-row gap-6 justify-center">
-<button class="bg-charcoal-black text-structural-white font-label-bold text-label-bold uppercase px-12 py-5 border-2 border-charcoal-black hover:bg-safety-yellow hover:text-charcoal-black transition-all">
+<a class="inline-block text-center bg-charcoal-black text-structural-white font-label-bold text-label-bold uppercase px-12 py-5 border-2 border-charcoal-black hover:bg-safety-yellow hover:text-charcoal-black transition-all" href="index.html#contact">
                         Request a Free Quote
-                    </button>
-<button class="border-2 border-charcoal-black text-charcoal-black font-label-bold text-label-bold uppercase px-12 py-5 hover:bg-charcoal-black hover:text-structural-white transition-all">
+                    </a>
+<a class="inline-block text-center border-2 border-charcoal-black text-charcoal-black font-label-bold text-label-bold uppercase px-12 py-5 hover:bg-charcoal-black hover:text-structural-white transition-all" href="tel:+18454146195">
                         Call (845) 414-6195
-                    </button>
+                    </a>
 </div>
 </div>
 </section>

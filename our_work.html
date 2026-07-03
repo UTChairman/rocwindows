@@ -174,13 +174,26 @@
             div.marquee-content, .marquee-content span { font-size: 15px; }
         }
         /* Mobile nav + scrolled header (JEF pattern) */
-        header { transition: background-color 0.25s ease; }
-        .header-scrolled,
-        body.nav-open header { 
-            background: rgba(16, 22, 28, 0.1);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        header {
+            color: #ffffff;
+            border-bottom: 1px solid transparent;
+            transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
         }
+        header img { filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.45)); transition: filter 0.25s ease; }
+        .header-scrolled,
+        body.nav-open header {
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: saturate(180%) blur(12px);
+            border-bottom-color: #e5e5e5;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            color: #1A1A1A;
+        }
+        .header-scrolled a, .header-scrolled .material-symbols-outlined,
+        body.nav-open header a { text-shadow: none; }
+        .header-scrolled img, body.nav-open header img { filter: none; }
+        #menu-btn { color: inherit; }
+        #menu-btn span { background: currentColor; border-radius: 2px; }
+        body.nav-open { overflow: hidden; }
         #mobile-nav.flex { display: flex; }
         #menu-btn.menu-open span:nth-child(1) { transform: translateY(9.5px) rotate(45deg); }
         #menu-btn.menu-open span:nth-child(2) { opacity: 0; }
@@ -193,30 +206,31 @@
 <div class="flex items-center gap-4">
 <a class="text-headline-sm font-headline-sm font-black text-structural-white tracking-tighter" href="index.html"><img src="images/logo.png" alt="Roc Windows" class="h-12 md:h-16 w-auto inline-block"></a>
 </div>
-<nav class="hidden md:flex items-center gap-8">
-<a class="text-label-bold font-label-bold uppercase text-structural-white hover:text-structural-white transition-all" href="index.html">Home</a>
-<a class="text-label-bold font-label-bold uppercase text-structural-white hover:text-structural-white transition-all" href="about_us.html">About</a>
-<a class="text-label-bold font-label-bold uppercase text-structural-white hover:text-structural-white transition-all" href="services.html">Services</a>
-<a class="text-label-bold font-label-bold uppercase text-structural-white font-bold transition-all hover:opacity-80" href="our_work.html">Portfolio</a>
-<a class="text-label-bold font-label-bold uppercase text-structural-white hover:text-structural-white transition-all" href="index.html#contact">Contact</a>
+<nav class="hidden lg:flex items-center gap-8">
+<a class="text-label-bold font-label-bold uppercase hover:opacity-70 transition-opacity" href="index.html">Home</a>
+<a class="text-label-bold font-label-bold uppercase hover:opacity-70 transition-opacity" href="about_us.html">About</a>
+<a class="text-label-bold font-label-bold uppercase hover:opacity-70 transition-opacity" href="services.html">Services</a>
+<a class="text-label-bold font-label-bold uppercase font-bold transition-opacity hover:opacity-70" href="our_work.html">Portfolio</a>
+<a class="text-label-bold font-label-bold uppercase hover:opacity-70 transition-opacity" href="index.html#contact">Contact</a>
 </nav>
 <div class="flex items-center gap-4">
-<a class="bg-safety-yellow text-structural-white px-4 sm:px-6 py-2 text-label-bold font-label-bold uppercase border-2 border-safety-yellow hover:bg-transparent hover:text-structural-white transition-colors active:scale-95 duration-100" href="index.html#contact">
+<a class="hidden lg:inline-block font-headline-sm font-black tracking-wide hover:opacity-70 transition-opacity" href="tel:+18454146195">(845) 414-6195</a>
+<a class="hidden sm:inline-block bg-safety-yellow text-structural-white px-4 sm:px-6 py-2 text-label-bold font-label-bold uppercase border-2 border-safety-yellow hover:opacity-90 transition-opacity active:scale-95 duration-100" href="index.html#contact">
             FREE QUOTE
         </a>
-<button aria-controls="mobile-nav" aria-expanded="false" aria-label="Toggle menu" class="md:hidden flex flex-col justify-between w-8 h-[22px] bg-transparent border-0 cursor-pointer p-0" id="menu-btn" type="button">
-<span class="block h-[3px] w-full bg-structural-white transition-transform duration-200"></span>
-<span class="block h-[3px] w-full bg-structural-white transition-opacity duration-200"></span>
-<span class="block h-[3px] w-full bg-structural-white transition-transform duration-200"></span>
+<button aria-controls="mobile-nav" aria-expanded="false" aria-label="Toggle menu" class="lg:hidden flex flex-col justify-between w-8 h-[22px] bg-transparent border-0 cursor-pointer p-0" id="menu-btn" type="button">
+<span class="block h-[3px] w-full transition-transform duration-200"></span>
+<span class="block h-[3px] w-full transition-opacity duration-200"></span>
+<span class="block h-[3px] w-full transition-transform duration-200"></span>
 </button>
 </div>
-<nav aria-label="Mobile navigation" class="hidden absolute top-full left-0 w-full flex-col px-6 pt-2 pb-8" id="mobile-nav" style="background: rgba(16, 22, 28, 0.15); backdrop-filter: blur(12px); border-top: 2px solid #183549;">
-<a class="block py-3 border-b border-white/10 text-structural-white uppercase font-headline-sm text-headline-sm hover:text-brand-light transition-colors" href="index.html">Home</a>
-<a class="block py-3 border-b border-white/10 text-structural-white uppercase font-headline-sm text-headline-sm hover:text-brand-light transition-colors" href="about_us.html">About</a>
-<a class="block py-3 border-b border-white/10 text-structural-white uppercase font-headline-sm text-headline-sm hover:text-brand-light transition-colors" href="services.html">Services</a>
-<a class="block py-3 border-b border-white/10 text-structural-white uppercase font-headline-sm text-headline-sm hover:text-brand-light transition-colors" href="our_work.html">Portfolio</a>
-<a class="block py-3 border-b border-white/10 text-structural-white uppercase font-headline-sm text-headline-sm hover:text-brand-light transition-colors" href="index.html#contact">Contact</a>
-<a class="block py-3 border-b border-white/10 text-brand-light uppercase font-headline-sm text-headline-sm" href="tel:+18454146195">(845) 414-6195</a>
+<nav aria-label="Mobile navigation" class="hidden absolute top-full left-0 w-full flex-col px-6 pt-2 pb-8" id="mobile-nav" style="background: #ffffff; border-top: 1px solid #e5e5e5;">
+<a class="block py-3 border-b border-charcoal-black/10 text-charcoal-black uppercase font-headline-sm text-headline-sm hover:text-primary transition-colors" href="index.html">Home</a>
+<a class="block py-3 border-b border-charcoal-black/10 text-charcoal-black uppercase font-headline-sm text-headline-sm hover:text-primary transition-colors" href="about_us.html">About</a>
+<a class="block py-3 border-b border-charcoal-black/10 text-charcoal-black uppercase font-headline-sm text-headline-sm hover:text-primary transition-colors" href="services.html">Services</a>
+<a class="block py-3 border-b border-charcoal-black/10 text-charcoal-black uppercase font-headline-sm text-headline-sm hover:text-primary transition-colors" href="our_work.html">Portfolio</a>
+<a class="block py-3 border-b border-charcoal-black/10 text-charcoal-black uppercase font-headline-sm text-headline-sm hover:text-primary transition-colors" href="index.html#contact">Contact</a>
+<a class="block py-3 border-b border-charcoal-black/10 text-primary uppercase font-headline-sm text-headline-sm" href="tel:+18454146195">(845) 414-6195</a>
 <a class="mt-5 block bg-safety-yellow text-structural-white text-center px-6 py-4 text-label-bold font-label-bold uppercase border-2 border-safety-yellow active:scale-95 transition-transform" href="index.html#contact">Get a Free Quote</a>
 </nav>
 </header>
@@ -229,7 +243,7 @@
 <div class="max-w-7xl mx-auto w-full flex flex-col md:flex-row justify-between items-end gap-12">
 <div class="max-w-3xl">
 <span class="inline-block bg-safety-yellow text-structural-white px-4 py-1 text-label-bold font-label-bold uppercase mb-6">Our Portfolio</span>
-<h1 class="text-display-lg font-display-lg text-structural-white uppercase leading-none mb-8 hero-text-shadow">BUILT TO LAST.<br/><span class="text-safety-yellow">PROVEN RESULTS.</span></h1>
+<h1 class="text-display-lg font-display-lg text-structural-white uppercase leading-none mb-8 hero-text-shadow">BUILT TO LAST.<br/><span class="text-brand-light">PROVEN RESULTS.</span></h1>
 <p class="text-body-lg font-body-lg max-w-xl opacity-80 hero-text-shadow">
                     From residential window cleaning to complex commercial power washing, explore our gallery of recently completed projects across the Northeast. Each project reflects our commitment to high-quality service.
                 </p>
@@ -294,16 +308,16 @@
 </div>
 </div>
 <!-- Stats/Branding Block -->
-<div class="col-span-12 md:col-span-4 bg-safety-yellow p-12 border-2 border-charcoal-black flex flex-col justify-center items-start brutalist-shadow-yellow relative overflow-hidden">
+<div class="col-span-12 lg:col-span-4 bg-safety-yellow p-8 lg:p-12 border-2 border-charcoal-black flex flex-col justify-center items-start brutalist-shadow-yellow relative overflow-hidden">
 <span class="material-symbols-outlined text-[120px] absolute -right-10 -bottom-10 opacity-10" data-icon="imagesmode">imagesmode</span>
 <h2 class="text-headline-lg font-headline-lg uppercase mb-6 leading-tight text-structural-white">CRAFTING EXCELLENCE<br/><span class="text-brand-light">SINCE 2024</span></h2>
 <p class="text-body-lg font-body-lg mb-8 text-structural-white/90">Every window, screen, and gutter is treated by our professional team. No shortcuts, just pure clarity.</p>
-<button class="bg-charcoal-black text-structural-white px-8 py-4 text-label-bold font-label-bold uppercase flex items-center gap-2 hover:bg-on-surface-variant transition-all">
+<a class="bg-charcoal-black text-structural-white px-8 py-4 text-label-bold font-label-bold uppercase inline-flex items-center gap-2 hover:bg-on-surface-variant transition-all" href="index.html#contact">
                     Request a Quote <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
-</button>
+</a>
 </div>
 <!-- Project 3: Modern Home Back -->
-<div class="col-span-12 md:col-span-8 relative group project-card overflow-hidden border-2 border-charcoal-black brutalist-shadow bg-charcoal-black">
+<div class="col-span-12 lg:col-span-8 relative group project-card overflow-hidden border-2 border-charcoal-black brutalist-shadow bg-charcoal-black">
 <img alt="Modern home back view" class="w-full h-[500px] object-cover transition-all duration-700 group-hover:scale-105" data-alt="A rear exterior view of a modern two-story home featuring integrated siding and roofing solutions. The lighting is crisp and bright, showing the textural contrast between the charcoal siding and the safety-certified roofing materials. The background is a clear blue sky, emphasizing a clean and high-quality finish, designed for a professional portfolio layout." src="images/portfolio-03-siding-gutters-rear.jpg"/>
 <div class="project-details absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-charcoal-black to-transparent opacity-0 translate-y-4 transition-all duration-300">
 <span class="bg-safety-yellow text-structural-white px-3 py-1 text-label-bold font-label-bold uppercase mb-4 inline-block">Deep Cleaning</span>
@@ -318,9 +332,9 @@
 <span class="bg-safety-yellow text-structural-white px-3 py-1 text-label-bold font-label-bold uppercase mb-4 inline-block">Complete Property Care</span>
 <h3 class="text-headline-lg font-headline-lg text-structural-white mb-4 uppercase">Project Completion Overview</h3>
 <p class="text-body-lg text-structural-white max-w-2xl opacity-80 mb-8">This Fairfield County project included full residential window cleaning, power washing, and gutter maintenance to ensure long-term property protection.</p>
-<button class="border-2 border-safety-yellow text-safety-yellow px-6 py-2 text-label-bold font-label-bold uppercase hover:bg-safety-yellow hover:text-on-background transition-colors">
+<a class="border-2 border-brand-light text-brand-light px-6 py-2 text-label-bold font-label-bold uppercase hover:bg-brand-light hover:text-on-background transition-colors" href="index.html#contact">
                         View Project Details
-                    </button>
+                    </a>
 </div>
 </div>
 </div>

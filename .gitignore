@@ -11,6 +11,9 @@ update-brand-color.cjs
 update-brand-contrast.cjs
 package.json
 
+# Local design reference (JEF site copy) — not part of the Roc Windows site
+jef-reference/
+
 # OS / editor
 .DS_Store
 Thumbs.db
